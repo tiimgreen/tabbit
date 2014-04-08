@@ -24,7 +24,44 @@ $ gem install tabbit
 
 ## Usage
 
-TODO: Write usage instructions here
+To make a new Table intialize Tabbit, passing in the Headers as the params:
+
+```ruby
+table = Tabbit.new('Name', 'Email', 'Phone No.')
+```
+
+To add a column:
+
+```ruby
+table.add_line('Tim Green', 'tiimgreen@gmail.com', '123-456-7890')
+```
+
+To print the table:
+
+```ruby
+puts table.to_s
+```
+
+```
+========================================================
+|  Name       |  Address              |  Number        |
+========================================================
+|  Tim Green  |  tiimgreen@gmail.com  |  123-456-7890  |
+========================================================
+```
+
+```ruby
+table.add_line('Bob Smith', 'robertsmithson@this-is-a-long-email.com', '123-456-7890')
+```
+
+```
+============================================================================
+|  Name       |  Address                                  |  Number        |
+============================================================================
+|  Tim Green  |  tiimgreen@gmail.com                      |  123-456-7890  |
+|  Bob Smith  |  robertsmithson@this-is-a-long-email.com  |  123-456-7890  |
+============================================================================
+```
 
 ## Contributing
 
