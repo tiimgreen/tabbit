@@ -4,7 +4,13 @@ Write felxible, customisable tables in the console.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To install Tabbit via RubyGems:
+
+```bash
+$ gem install tabbit
+```
+
+Or add this line to your application's Gemfile:
 
 ```ruby
 gem 'tabbit'
@@ -14,12 +20,6 @@ And then execute:
 
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-
-```bash
-$ gem install tabbit
 ```
 
 ## Usage
@@ -51,17 +51,18 @@ puts table.to_s
 ```
 
 ```ruby
-table.add_line('Bob Smith', 'bobsmith@this-is-a-long-email.com', '123-456-7890')
+require 'tabbit'
+
+table = Tabbit.new('Name', 'Email', 'Phone No.')
+
+10.times do |n|
+  table.add_line("Tim Green #{n}", "tiimgreen#{n}@gmail.com", "123-456-789")
+end
+
+puts table.to_s
 ```
 
-```
-======================================================================
-|  Name       |  Email                              |  Phone No.     |
-======================================================================
-|  Tim Green  |  tiimgreen@gmail.com                |  123-456-7890  |
-|  Bob Smith  |  bobsmith@this-is-a-long-email.com  |  123-456-7890  |
-======================================================================
-```
+![Result](http://i.imgur.com/TlsXJ0g.png)
 
 ## Contributing
 
