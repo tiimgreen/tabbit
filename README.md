@@ -1,6 +1,6 @@
 # Tabbit [![Build Status](http://img.shields.io/travis/tiimgreen/tabbit.svg)](https://travis-ci.org/tiimgreen/tabbit) [![Gem Version](http://img.shields.io/gem/v/tabbit.svg)](https://rubygems.org/gems/tabbit)
 
-TODO: Write a gem description
+Write felxible, customisable tables in the console.
 
 ## Installation
 
