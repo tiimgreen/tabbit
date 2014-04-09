@@ -33,21 +33,13 @@ table = Tabbit.new('Name', 'Email', 'Phone No.')
 To add an entry:
 
 ```ruby
-table.add_line('Tim Green', 'tiimgreen@gmail.com', '123-456-7890')
+table.add_line('Tim Green', 'tiimgreen@gmail.com', '123-456-789')
 ```
 
 To print the table:
 
 ```ruby
 puts table.to_s
-```
-
-```
-========================================================
-|  Name       |  Email                |  Phone No.     |
-========================================================
-|  Tim Green  |  tiimgreen@gmail.com  |  123-456-7890  |
-========================================================
 ```
 
 ```ruby
