@@ -11,7 +11,7 @@ class Tabbit
   end
 
   # Adds line to @table in form of Array
-  def add_line(*items)
+  def add_row(*items)
     line = []
     items.each { |i| line.push i }
     @table.push line
@@ -19,10 +19,10 @@ class Tabbit
 
   # Changes @table Array into format for printing to console.
   def to_s
-    # Set instance variables for maximum length of each column
     @table[0].length.times do |n|
       self.instance_variable_set "@max_length_#{n}", 0.0
-      # Finds the longest string in column n and assign it to @max_length_n.
+
+      # Finds the longest string in column
       @table.each do |line|
         if line[n].length >  self.instance_variable_get("@max_length_#{n}")
           self.instance_variable_set "@max_length_#{n}", line[n].length.to_f
@@ -32,16 +32,11 @@ class Tabbit
 
     divider '=', @table, new_line: true
 
-    # Write headers
     @table[0].length.times do |n|
-      max_len = self.instance_variable_get("@max_length_#{n}")
-      difference = max_len - @table[0][n].length + 2
+      difference = self.instance_variable_get("@max_length_#{n}") - @table[0][n].length + 2
 
-      if @table[0][n] == @table[0].last
-        puts '|' + (' ' * 2) + @table[0][n].bold.red + (' ' * difference) + '|'
-      else
-        print '|' + (' ' * 2) + @table[0][n].bold.red + (' ' * difference)
-      end
+      cell = '|' + (' ' * 2) + @table[0][n].bold.red + (' ' * difference)
+      @table[0][n] == @table[0].last ? puts(cell + '|') : print(cell)
     end
 
     divider '=', @table, new_line: true
@@ -53,13 +48,9 @@ class Tabbit
         line = @table[n]
         line.length.times do |i|
           item = line[i]
-          max_len_of_column = self.instance_variable_get("@max_length_#{i}")
-          difference2 = max_len_of_column - item.length + 2 # Spaces needed after item in column.
-          if item == line.last
-            puts '|' + (' ' * 2) + item + (' ' * difference2) + '|'
-          else
-            print '|' + (' ' * 2) + item + (' ' * difference2)
-          end
+          difference = self.instance_variable_get("@max_length_#{i}") - item.length + 2
+          cell = '|' + (' ' * 2) + item + (' ' * difference)
+          item == line.last ? puts(cell + '|') : print(cell)
         end
       end
     end
@@ -67,13 +58,17 @@ class Tabbit
     divider '=', @table
   end
 
+  def size
+    @table.length - 1
+  end
+
   private
 
   # Takes the table being passed and calculates the width of the full table to write the divider.
-  def divider(split, table, options = {})
+  def divider(char, table, options = {})
     total_title_length = 0
     table[0].length.times { |n| total_title_length += self.instance_variable_get("@max_length_#{n}") }
-    statement = split * ((table[0].length * 5) + total_title_length + 1)
+    statement = char * ((table[0].length * 5) + total_title_length + 1)
 
     options[:new_line] ? puts(statement) : print(statement)
   end
