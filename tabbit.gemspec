@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'tabbit'
-  s.version       = '0.0.1'
+  s.version       = '0.0.2'
   s.summary       = 'Make tables in the command line.'
   s.description   = 'Tabbit is a simple tool for making tables in the command line.'
   s.authors       = ['Tim Green']
