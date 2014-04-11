@@ -33,7 +33,7 @@ table = Tabbit.new('Name', 'Email', 'Phone No.')
 To add an entry:
 
 ```ruby
-table.add_line('Tim Green', 'tiimgreen@gmail.com', '123-456-789')
+table.add_row('Tim Green', 'tiimgreen@gmail.com', '123-456-789')
 ```
 
 To print the table:
@@ -48,7 +48,7 @@ require 'tabbit'
 table = Tabbit.new('Name', 'Email', 'Phone No.')
 
 10.times do |n|
-  table.add_line("Tim Green #{n}", "tiimgreen#{n}@gmail.com", "123-456-789")
+  table.add_row("Tim Green #{n}", "tiimgreen#{n}@gmail.com", "123-456-789")
 end
 
 puts table.to_s
