@@ -24,7 +24,7 @@ class Tabbit
 
       # Finds the longest string in column
       @table.each do |line|
-        if line[n].length >  self.instance_variable_get("@max_length_#{n}")
+        if line[n].to_s.length >  self.instance_variable_get("@max_length_#{n}")
           self.instance_variable_set "@max_length_#{n}", line[n].length.to_f
         end
       end
@@ -33,9 +33,9 @@ class Tabbit
     divider '=', @table, new_line: true
 
     @table[0].length.times do |n|
-      difference = self.instance_variable_get("@max_length_#{n}") - @table[0][n].length + 2
+      difference = self.instance_variable_get("@max_length_#{n}") - @table[0][n].to_s.length + 2
 
-      cell = '|' + (' ' * 2) + @table[0][n].bold.red + (' ' * difference)
+      cell = '|' + (' ' * 2) + @table[0][n].to_s.bold.red + (' ' * difference)
       @table[0][n] == @table[0].last ? puts(cell + '|') : print(cell)
     end
 
@@ -48,8 +48,8 @@ class Tabbit
         line = @table[n]
         line.length.times do |i|
           item = line[i]
-          difference = self.instance_variable_get("@max_length_#{i}") - item.length + 2
-          cell = '|' + (' ' * 2) + item + (' ' * difference)
+          difference = self.instance_variable_get("@max_length_#{i}") - item.to_s.length + 2
+          cell = '|' + (' ' * 2) + item.to_s + (' ' * difference)
           item == line.last ? puts(cell + '|') : print(cell)
         end
       end
