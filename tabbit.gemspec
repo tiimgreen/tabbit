@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'pry'
 
   s.add_runtime_dependency 'toc'
 end
