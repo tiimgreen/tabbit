@@ -1,9 +1,8 @@
 # Tabbit [![Build Status](http://img.shields.io/travis/tiimgreen/tabbit.svg)](https://travis-ci.org/tiimgreen/tabbit) [![Gem Version](http://img.shields.io/gem/v/tabbit.svg)](https://rubygems.org/gems/tabbit)
 
-Write felxible, customisable tables in the console.
+Write flexible, customisable tables in the console.
 
 ## Installation
-
 To install Tabbit via RubyGems:
 
 ```bash
@@ -23,8 +22,7 @@ $ bundle
 ```
 
 ## Usage
-
-To make a new Table intialize Tabbit, passing in the Headers as the params:
+To make a new Table initialise Tabbit, passing in the Headers as the params:
 
 ```ruby
 table = Tabbit.new('Name', 'Email', 'Phone No.')
@@ -57,7 +55,6 @@ puts table.to_s
 ![Result](http://i.imgur.com/TlsXJ0g.png)
 
 ## Contributing
-
 1. Fork it (http://github.com/tiimgreen/tabbit/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
