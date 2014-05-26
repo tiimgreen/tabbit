@@ -1,6 +1,8 @@
 require 'toc'
 
 class Tabbit
+  attr_reader :table
+
   # When Tabbit.new is called, takes a undefined amount of headers to add
   # to the table.
 
@@ -31,7 +33,7 @@ class Tabbit
       end
     end
 
-    @string << divider('=', @table, new_line: true)g
+    @string << divider('=', @table, new_line: true)
 
     @table[0].length.times do |n|
       difference = self.instance_variable_get("@max_length_#{n}") - @table[0][n].to_s.length + 2
