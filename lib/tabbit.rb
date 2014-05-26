@@ -36,7 +36,7 @@ class Tabbit
       difference = self.instance_variable_get("@max_length_#{n}") - @table[0][n].to_s.length + 2
 
       cell = '|' + (' ' * 2) + @table[0][n].to_s.bold.red + (' ' * difference)
-      @table[0][n] == @table[0].last ? puts(cell + '|') : print(cell)
+      @table[0][n] == @table[0].last ? puts("#{cell}|") : print(cell)
     end
 
     divider '=', @table, new_line: true
@@ -50,7 +50,7 @@ class Tabbit
           item = line[i]
           difference = self.instance_variable_get("@max_length_#{i}") - item.to_s.length + 2
           cell = '|' + (' ' * 2) + item.to_s + (' ' * difference)
-          item == line.last ? puts(cell + '|') : print(cell)
+          item == line.last ? puts("#{cell}|") : print(cell)
         end
       end
     end
